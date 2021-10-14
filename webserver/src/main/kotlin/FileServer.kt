@@ -1,5 +1,6 @@
 import ru.sber.filesystem.VFilesystem
 import java.io.IOException
+import java.io.PrintWriter
 import java.net.ServerSocket
 
 /**
@@ -29,10 +30,29 @@ class FileServer {
         while (true) {
 
             // TODO Delete this once you start working on your solution.
-            //throw new UnsupportedOperationException();
+            throw UnsupportedOperationException()
 
             // TODO 1) Use socket.accept to get a Socket object
+            ServerSocket(7777).use {
+                while (true) {
+                    val socket = it.accept() // блокирующий вызов
 
+
+                    socket.use { s ->
+                        // читаем от клиента сообщение
+                        val reader = s.getInputStream().bufferedReader()
+                        val clientRequest = reader.readLine()
+
+                        // отправляем ответ
+                        val writer = PrintWriter(s.getOutputStream())
+                        val serverResponse = "Server response: ${clientRequest.uppercase()}"
+                        writer.println(serverResponse)
+                        writer.flush()
+
+                    }
+
+                }
+            }
 
             /*
             * TODO 2) Using Socket.getInputStream(), parse the received HTTP
