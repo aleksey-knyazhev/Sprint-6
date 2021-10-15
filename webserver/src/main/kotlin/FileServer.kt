@@ -30,7 +30,7 @@ class FileServer {
         while (true) {
 
             // TODO Delete this once you start working on your solution.
-            throw UnsupportedOperationException()
+            // throw UnsupportedOperationException()
 
             // TODO 1) Use socket.accept to get a Socket object
             ServerSocket(7777).use {
