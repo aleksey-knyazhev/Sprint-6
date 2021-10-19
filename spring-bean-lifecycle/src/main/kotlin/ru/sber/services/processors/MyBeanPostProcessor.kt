@@ -6,10 +6,12 @@ import org.springframework.stereotype.Component
 @Component
 class MyBeanPostProcessor : BeanPostProcessor {
     override fun postProcessBeforeInitialization(bean: Any, beanName: String): Any? {
+//        println("postProcessBeforeInitialization $beanName")
         return bean
     }
 
     override fun postProcessAfterInitialization(bean: Any, beanName: String): Any? {
+//        println("postProcessAfterInitialization $beanName")
         return bean
     }
 }
