@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact book</title>
+</head>
+<body>
+<div>
+    <h2>Contact book</h2>
+    <table style="border: 4px ridge">
+        <tr>
+            <td style="padding:5px">ID</td>
+            <td style="padding:5px">Name</td>
+            <td style="padding:5px">Address</td>
+            <td style="padding:5px">Actions</td>
+        </tr>
+        <tr th:each="record:${result}">
+            <td style="padding:5px" th:text="${record.id}" th:href="@{/app/{id}/view(id=${record.id})}">View</td>
+            <td style="padding:5px" th:text="${record.name}">Name</td>
+            <td style="padding:5px" th:text="${record.address}">Address</td>
+            <td style="padding:5px">
+                <a th:href="@{/app/{id}/edit(id=${record.id})}">Edit</a>
+                <a th:href="@{/app/{id}/delete(id=${record.id})}">Delete</a>
+            </td>
+        </tr>
+    </table>
+    <p><a th:href="@{/app/add}">Add new contact</a></p>
+</div>
+</body>
+</html>
+

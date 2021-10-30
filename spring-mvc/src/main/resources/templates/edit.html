@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit contact</title>
+</head>
+<body>
+    <form method="post">
+        <p>Contact name:</p>
+        <p><input name="name" th:value="${name}"/></p>
+        <p>Contact address:</p>
+        <p><input name="address" th:value="${address}"/></p>
+        <p><input type="submit" value="Submit"/></p>
+    </form>
+    <p><a href="/app/list">Cancel</a></p>
+</body>
+</html>
